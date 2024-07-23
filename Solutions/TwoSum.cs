@@ -50,7 +50,10 @@ public class TwoSum
             
             dictionary[nums[i]] = i;
         }
+        bool hasMatch = resultFirstAttempt.Select(x => x)
+            .Intersect(resultSecondAttempt)
+            .Any(); 
         
-        return resultFirstAttempt == resultSecondAttempt ? resultFirstAttempt : Array.Empty<int>();
+        return hasMatch ? resultFirstAttempt : Array.Empty<int>();
     }
 }
